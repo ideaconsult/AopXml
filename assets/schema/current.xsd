@@ -79,6 +79,8 @@
                                             <xs:enumeration value="All life stages" />
                                             <xs:enumeration value="Fetal" />
                                             <xs:enumeration value="Larvae" />
+                                            <xs:enumeration value="Larval development" />
+                                            <xs:enumeration value="before or during gonadal sex differentiation" />
                                         </xs:restriction>
                                     </xs:simpleType>
                                 </xs:element>
