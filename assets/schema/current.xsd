@@ -79,6 +79,8 @@
                                             <xs:enumeration value="All life stages" />
                                             <xs:enumeration value="Fetal" />
                                             <xs:enumeration value="Larvae" />
+                                            <xs:enumeration value="Larval development" />
+                                            <xs:enumeration value="before or during gonadal sex differentiation" />
                                         </xs:restriction>
                                     </xs:simpleType>
                                 </xs:element>
@@ -130,17 +132,21 @@
             <xs:element name="last-modified" type="xs:dateTime" />
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="url_link">
+        <xs:sequence>
+            <xs:element name="link_source" type="xs:string" minOccurs="0" />
+            <xs:element name="url" type="xs:string" minOccurs="0" />
+            <xs:element name="title" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="status">
         <xs:sequence>
-            <xs:element name="wiki-status">
+            <xs:element name="wiki-license">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
-                        <xs:enumeration value="Open for citation &amp; comment" />
-                        <xs:enumeration value="Open for comment. Do not cite" />
+                        <xs:enumeration value="All rights reserved" />
+                        <xs:enumeration value="BY-SA" />
                         <xs:enumeration value="Open for adoption" />
-                        <xs:enumeration value="Not under active development" />
-                        <xs:enumeration value="Under development: Not open for comment. Do not cite" />
-                        <xs:enumeration value="Under Development: Contributions and Comments Welcome" />
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -148,19 +154,9 @@
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="WPHA/WNT Endorsed" />
-                        <xs:enumeration value="EAGMST Approved" />
-                        <xs:enumeration value="EAGMST Under Review" />
+                        <xs:enumeration value="ESCA Approved" />
+                        <xs:enumeration value="Under Review" />
                         <xs:enumeration value="Under Development" />
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-            <xs:element name="saaop-status" minOccurs="0">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:enumeration value="Included in OECD Work Plan" />
-                        <xs:enumeration value="Proposed for OECD Work Plan" />
-                        <xs:enumeration value="Under Development" />
-                        <xs:enumeration value="Archived" />
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -440,15 +436,15 @@
                                         <xs:element name="coach" type="xs:string" maxOccurs="unbounded" minOccurs="0" />
                                     </xs:sequence>
                                 </xs:complexType>
-                             </xs:element>                            
-                            <xs:element name="status" >
+                             </xs:element>
+                            <xs:element name="external_links" minOccurs="0">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="wiki-license" type="xs:string" minOccurs="1" />
-                                        <xs:element name="oecd-status" type="xs:string" minOccurs="0" />
+                                        <xs:element name="url_link" type="url_link" minOccurs="0" maxOccurs="unbounded" />
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
+                            <xs:element name="status" type="status" />
                             <xs:element name="oecd-project" type="xs:string" />
                             <xs:element name="handbook-version" type="xs:string" />
                             <xs:element name="abstract" type="xs:string" />
