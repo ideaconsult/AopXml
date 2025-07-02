@@ -81,6 +81,7 @@
                                             <xs:enumeration value="Larvae" />
                                             <xs:enumeration value="Larval development" />
                                             <xs:enumeration value="before or during gonadal sex differentiation" />
+                                            <xs:enumeration value="Prepubertal" />
                                         </xs:restriction>
                                     </xs:simpleType>
                                 </xs:element>
